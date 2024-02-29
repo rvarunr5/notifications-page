@@ -6,6 +6,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --blue-color: hsl(219, 85%, 26%);
+  --red-color: hsl(1, 90%, 64%);
+  --very-dark-grey-blue-color: hsl(224, 21%, 14%);
+  --dark-grey-blue-color: hsl(219, 12%, 42%);
+  --grey-blue-color: hsl(219, 14%, 63%);
+  --light-grey-blue-color: hsl(211, 68%, 94%);
+  --very-light-grey-blue-color: hsl(205, 33%, 90%);
+  --snow-white-color: hsl(210, 60%, 98%);
+  --white-color: hsl(0, 0%, 100%);
+  --24px: 1.5rem;
+  --30px: 1.875rem;
 }
 
 *,
@@ -18,13 +30,104 @@
   padding: 0;
 }
 
-html,
+html {
+  height: 100%;
+}
 body {
-  height: 100svh;
+  min-height: 100%;
 }
 
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-color: var(--snow-white-color);
+}
+.wrapper {
+  width: 45rem;
+  height: 100%;
+  max-width: 45rem;
+  padding: 33px;
+  border-radius: 15px;
+  margin: 63px 0;
+  background-color: var(--white-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header > div:first-child {
+  font-size: var(--24px);
+  color: var(--blue-color);
+  font-weight: bold;
+  margin-right: 11px;
+}
+.header > div > span {
+  font-size: 1rem;
+  vertical-align: middle;
+  padding: 1px 11px;
+  border-radius: 6px;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+.header > div:last-child {
+  font-size: 1rem;
+  color: var(--dark-grey-blue-color);
+  align-self: center;
+  cursor: pointer;
+}
+.content {
+  min-height: 100%;
+  margin-top: var(--30px);
+}
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.notification-item {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+.notification-item.unread {
+  cursor: pointer;
+  background-color: var(--snow-white-color);
+}
+.notification-item > img {
+  width: 45px;
+  height: 45px;
+}
+.notification {
+  display: flex;
+  flex-direction: column;
+}
+.notification .time {
+  color: var(--grey-blue-color);
+}
+.notification .message {
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 17px 20px 20px;
+  border: 1px solid var(--very-light-grey-blue-color);
+}
+.notification-content strong {
+  color: var(--blue-color);
+}
+.notification-content .bullet {
+  color: var(--red-color);
+}
+
+@media (max-width: 30rem) {
+  .wrapper {
+    padding: 24px 16px 50px;
+    border-radius: unset;
+    margin: 0;
+  }
+  .notification-item {
+    padding: 16px;
+  }
 }
